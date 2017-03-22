@@ -1,4 +1,4 @@
-
+var modeHP  = tampilHP;
 var postTitle=new Array();
 var postUrl=new Array();
 var postPublished=new Array();
