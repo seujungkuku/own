@@ -169,18 +169,26 @@ function displayToc2(){
   temp1=postLabels[b];
 
   document.write('<div class="panel panel-default">');
-  document.write('<div class="panel-heading"><span class="icon jqh-tag"></span> <a href="/search/label/'+temp1+'">'+temp1+"</a></div><ul class='list-group'>");
+  document.write('<div class="panel-heading"><span class="icon jqh-tag"></span> <a href="/search/label/'+temp1+(modeHP == true ? '?m=1':'')+'">'+temp1+"</a></div><ul class='list-group'>");
   
   firsti=a;
 
   do{
    document.write("<li class='list-group-item'>");
-   document.write("<div class='media'><a href='"+postUrl[a]+"?m=1'><div class='media-body media-middle'>");
-   document.write(postTitle[a]);
+
+  if(modeHP==true)
+   document.write("<div class='media'><a href='"+postUrl[a]+"?m=1'><div class='media-body media-middle'>"+postTitle[a]);
+  else 
+    document.write("<div class='media'><div class='media-left media-middle'><span class='icon jqh-angle-right icon-sm'></span></div><div class='media-body media-middle'> <a href='"+postUrl[a]+"''>"+postTitle[a]+"</a>");
+
    if(postRecent[a]==true){
     document.write(' <strong><span class="labelnew" style="color: rgb(255, 0, 0);"><sup> &nbsp;New!</sup></span></strong>');
    }
+
+   if(modeHP==true)
    document.write("</div><div class='media-left media-middle'><span class='icon jqh-angle-right icon-md'></span></div></a></div></li>");
+  else 
+    document.write("</div></div></li>");
    a=a+1;
   }
   while(postLabels[a]==temp1);
